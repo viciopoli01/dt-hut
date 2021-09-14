@@ -1,0 +1,19 @@
+<launch>
+	<arg name="pkg_name" value="duckie_rr_bridge" />
+	<arg name="node_name" value="duckie_host" />
+
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="port" default="0" doc="RobotRaconteur port number"/>
+
+	<node  ns="$(arg veh)" pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" clear_params="true" required="true" args="--veh $(arg veh) --port $(arg port)"/>
+	
+
+
+	<!-- Subscribe Topics -->
+	<!-- "~velocity": duckietown_msgs/Twist2DStamped. velocity and omega from forward kinematics node. -->
+	<!-- "~pose": duckietown_msgs/Pose2DStamped. Pose from velocitytopose node-->
+	<!-- Publish Topics -->
+	<!-- "~car_cmd": duckietown_msgs/Twist2DStamped. Twist command for duckiebot -->
+</launch>
+
+

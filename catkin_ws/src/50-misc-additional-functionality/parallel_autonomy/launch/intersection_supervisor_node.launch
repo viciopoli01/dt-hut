@@ -1,0 +1,16 @@
+<launch>
+	<arg name="veh"/>
+	<arg name="pkg_name" default="parallel_autonomy" doc="name of the package"/>
+	<arg name="node_name" default="intersection_supervisor_node" doc="name of the node"/>
+        <arg name="config" default="baseline" doc="Specify a config."/>
+        <arg name="param_file_name" default="default" doc="Specify a param file. ex:megaman." />
+	<group ns="$(arg veh)">
+	    <node pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" clear_params="true" required="true"/>
+	</group>
+
+	<!-- Publication -->
+	
+	<!-- Subscription -->
+
+
+</launch>
